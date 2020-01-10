@@ -64,7 +64,7 @@ async def verify_message(ctx, msg):
 
 
 async def require_confirm_verify_message(ctx, address, message):
-    text = Text("Confirm address")
+    text = Text("Confirm ERROR")
     text.mono(*split_address(address))
     await require_confirm(ctx, text)
 
