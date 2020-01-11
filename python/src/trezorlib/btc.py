@@ -87,7 +87,7 @@ def verify_message(client, coin_name, address, signature, message):
 
 
 @session
-def sign_tx(client, coin_name, inputs, outputs, details=None, prev_txes=None):
+def sign_tx(client, coin_name, inputs, outputs, details=None, prev_txes=None, version=1):
     # set up a transactions dict
     txes = {None: messages.TransactionType(inputs=inputs, outputs=outputs)}
     # preload all relevant transactions ahead of time
@@ -112,6 +112,7 @@ def sign_tx(client, coin_name, inputs, outputs, details=None, prev_txes=None):
 
     if details is None:
         signtx = messages.SignTx()
+        signtx.version = version
     else:
         signtx = details
 
